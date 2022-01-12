@@ -20,11 +20,11 @@ def zaisti_dar_karta(iliustracija_o, iliustracija_x, o_laimejo, x_laimejo):
                                                                         x_laimejo))
 
 
-def tikrinti_laimejima(zaidejo_pasirinkimai, iliustracija):
+def tikrinti_laimejima(zaidejo_pasirinkimai, iliustracija_laimejimas):
     for laimejimas in laimejimai:
         if laimejimas.issubset(zaidejo_pasirinkimai):
             for indeksas in list(laimejimas):
-                mygtukai[indeksas]["image"] = iliustracija
+                mygtukai[indeksas]["image"] = iliustracija_laimejimas
             return True
     return False
 
@@ -47,16 +47,16 @@ def pasirinkti_simboli(zaidejo_simbolis, iliustracija_o, iliustracija_x, o_laime
     return iliustracija, iliustracija_laimejo
 
 
-def zaisti(m, iliustracija_o, iliustracija_x, o_laimejo, x_laimejo):
-    if m not in zaideju_pasirinkimai["x"] and m not in zaideju_pasirinkimai["o"]:
+def zaisti(nr, iliustracija_o, iliustracija_x, o_laimejo, x_laimejo):
+    if nr not in zaideju_pasirinkimai["x"] and nr not in zaideju_pasirinkimai["o"]:
         zaidejo_simbolis = simbolis.get()
-        zaideju_pasirinkimai[zaidejo_simbolis].append(m)
+        zaideju_pasirinkimai[zaidejo_simbolis].append(nr)
         iliustracija, iliustracija_laimejo = pasirinkti_simboli(zaidejo_simbolis,
                                                                 iliustracija_o,
                                                                 iliustracija_x,
                                                                 o_laimejo,
                                                                 x_laimejo)
-        mygtukai[m]["image"] = iliustracija
+        mygtukai[nr]["image"] = iliustracija
         laimejimas = tikrinti_laimejima(zaideju_pasirinkimai[zaidejo_simbolis], iliustracija_laimejo)
         if laimejimas:
             for indeksas in range(1, 10):
@@ -80,15 +80,15 @@ laimejimai = [{1, 2, 3},
               {1, 5, 9},
               {3, 5, 7}]
 
-mygtukas_1 = Button(langas, command=lambda m=1: zaisti(m, iliustracija_o, iliustracija_x, o_laimejo, x_laimejo))
-mygtukas_2 = Button(langas, command=lambda m=2: zaisti(m, iliustracija_o, iliustracija_x, o_laimejo, x_laimejo))
-mygtukas_3 = Button(langas, command=lambda m=3: zaisti(m, iliustracija_o, iliustracija_x, o_laimejo, x_laimejo))
-mygtukas_4 = Button(langas, command=lambda m=4: zaisti(m, iliustracija_o, iliustracija_x, o_laimejo, x_laimejo))
-mygtukas_5 = Button(langas, command=lambda m=5: zaisti(m, iliustracija_o, iliustracija_x, o_laimejo, x_laimejo))
-mygtukas_6 = Button(langas, command=lambda m=6: zaisti(m, iliustracija_o, iliustracija_x, o_laimejo, x_laimejo))
-mygtukas_7 = Button(langas, command=lambda m=7: zaisti(m, iliustracija_o, iliustracija_x, o_laimejo, x_laimejo))
-mygtukas_8 = Button(langas, command=lambda m=8: zaisti(m, iliustracija_o, iliustracija_x, o_laimejo, x_laimejo))
-mygtukas_9 = Button(langas, command=lambda m=9: zaisti(m, iliustracija_o, iliustracija_x, o_laimejo, x_laimejo))
+mygtukas_1 = Button(langas, command=lambda nr=1: zaisti(nr, iliustracija_o, iliustracija_x, o_laimejo, x_laimejo))
+mygtukas_2 = Button(langas, command=lambda nr=2: zaisti(nr, iliustracija_o, iliustracija_x, o_laimejo, x_laimejo))
+mygtukas_3 = Button(langas, command=lambda nr=3: zaisti(nr, iliustracija_o, iliustracija_x, o_laimejo, x_laimejo))
+mygtukas_4 = Button(langas, command=lambda nr=4: zaisti(nr, iliustracija_o, iliustracija_x, o_laimejo, x_laimejo))
+mygtukas_5 = Button(langas, command=lambda nr=5: zaisti(nr, iliustracija_o, iliustracija_x, o_laimejo, x_laimejo))
+mygtukas_6 = Button(langas, command=lambda nr=6: zaisti(nr, iliustracija_o, iliustracija_x, o_laimejo, x_laimejo))
+mygtukas_7 = Button(langas, command=lambda nr=7: zaisti(nr, iliustracija_o, iliustracija_x, o_laimejo, x_laimejo))
+mygtukas_8 = Button(langas, command=lambda nr=8: zaisti(nr, iliustracija_o, iliustracija_x, o_laimejo, x_laimejo))
+mygtukas_9 = Button(langas, command=lambda nr=9: zaisti(nr, iliustracija_o, iliustracija_x, o_laimejo, x_laimejo))
 
 mygtukai = {1: mygtukas_1,
             2: mygtukas_2,
